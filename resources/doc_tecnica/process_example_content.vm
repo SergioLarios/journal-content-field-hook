@@ -1,0 +1,78 @@
+## -- Services --
+
+#set ($jaService = $serviceLocator.findService(
+        "com.liferay.portlet.journal.service.JournalArticleLocalService"))
+
+#if (!$validator.isBlank($first_level.data))
+
+    ## -- Inicializacion --
+
+    #set($fl = $jsonFactoryUtil.createJSONObject($first_level.data))
+    
+    #set ($jaFlContent = $jaService.getLatestArticle(
+            $fl.getLong('groupId'), $fl.getString('contentId')
+        ).getContentByLocale("$locale"))
+        
+    #set( $doc = $saxReaderUtil.read($jaFlContent) )
+    #set( $root = $doc.getRootElement() )
+
+    ## -- Process --
+
+    <div class="normal">
+        #getField($root 'Normal')
+    </div>
+    
+    <div class="anidated">
+        #getAnidated($root 'parent' 'anidated')
+    </div>
+    
+    <ul class="repeatible">
+    
+        #set ($els = $root.selectNodes("dynamic-element[@name='repeatable']"))
+        
+        #foreach ($el in $els)
+            
+            <li>$el.stringValue</li>
+        
+        #end
+        
+    </ul>
+    
+    <div class="repeatibleBlock">
+    
+        #set ($pEls = $root.selectNodes("dynamic-element[@name='parent_repeatable']"))
+            
+        #foreach ($pEl in $pEls)
+    
+            <div class="block">
+        
+                <p class="field_1">#getField($pEl 'field_1')</p>
+                <p class="field_2">#getField($pEl 'field_2')</p>
+                
+            </div>
+        
+        #end
+    
+    </div>
+
+#end
+
+## --------------------
+## ---- Utilidades ----
+## --------------------
+
+#macro (getField $root $fName)
+    
+    #set ($sel = "dynamic-element[@name='$fName']/dynamic-content")
+    
+    $root.selectSingleNode($sel).stringValue
+
+#end
+
+#macro (getAnidated $root $parent $fName)
+    
+    #set ($sel = "dynamic-element[@name='$parent']/dynamic-element[@name='$fName']/dynamic-content")
+    
+    $root.selectSingleNode($sel).stringValue
+
+#end

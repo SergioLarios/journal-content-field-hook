@@ -1,0 +1,48 @@
+<root default-locale="en_US" available-locales="en_US">
+	<dynamic-element index="0" index-type="keyword" type="text" name="Normal">
+		<dynamic-content language-id="en_US">
+			<!--[CDATA[Normal]]-->
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" type="selection_break" name="parent">
+		<dynamic-element index-type="keyword" type="text" index="0" name="anidated">
+			<dynamic-content language-id="en_US">
+				<!--[CDATA[Anidated]]-->
+			</dynamic-content>
+		</dynamic-element>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" type="text" name="repeatable">
+		<dynamic-content language-id="en_US">
+			<!--[CDATA[Rep 1]]-->
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="1" index-type="keyword" type="text" name="repeatable">
+		<dynamic-content language-id="en_US">
+			<!--[CDATA[Rep 2]]-->
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" type="selection_break" name="parent_repeatable">
+		<dynamic-element index-type="keyword" type="text" index="0" name="field_1">
+			<dynamic-content language-id="en_US">
+				<!--[CDATA[Par 1 Rep 1]]-->
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element index-type="keyword" type="text" index="0" name="field_2">
+			<dynamic-content language-id="en_US">
+				<!--[CDATA[Par 1 Rep 2]]-->
+			</dynamic-content>
+		</dynamic-element>
+	</dynamic-element>
+	<dynamic-element index="1" index-type="keyword" type="selection_break" name="parent_repeatable">
+		<dynamic-element index-type="keyword" type="text" index="1" name="field_1">
+			<dynamic-content language-id="en_US">
+				<!--[CDATA[Par 2 Rep 1]]-->
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element index-type="keyword" type="text" index="1" name="field_2">
+			<dynamic-content language-id="en_US">
+				<!--[CDATA[Par 2 Rep 2]]-->
+			</dynamic-content>
+		</dynamic-element>
+	</dynamic-element>
+</root>

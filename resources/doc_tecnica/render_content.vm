@@ -1,0 +1,30 @@
+#if (!$validator.isBlank($first_level.data))
+
+	#set($fl = $jsonFactoryUtil.createJSONObject($first_level.data))
+		
+	#getJaDisp($fl)
+
+	#getJaDispWithTmpl($fl, '23525')
+
+#end
+
+#macro (getJaDisp $wcField)
+
+	$journalContentUtil.getDisplay(
+		$wcField.getLong('groupId'), 
+		$wcField.getString('contentId'),
+		null, '$locale', $xmlRequest
+	).content
+
+#end
+
+#macro (getJaDispWithTmpl $wcField $ddmTemplateKey)
+
+	$journalContentUtil.getDisplay(
+		$wcField.getLong('groupId'), 
+		$wcField.getString('contentId'),
+		$ddmTemplateKey, null, 
+		'$locale', $xmlRequest
+	 ).content
+
+#end

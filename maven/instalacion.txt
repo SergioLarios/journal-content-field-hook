@@ -1,0 +1,14 @@
+
+1. Importar como proyecto maven en el Lifera developer Studio (Importante que sea EE)
+
+2. Modificar la ruta de tu servidor en el pom.xml
+	<liferay.base.dir>...</liferay.base.dir>
+	<liferay.tomcat.dir>${caixa.liferay.base.dir}/tomcat-7.0.42</liferay.tomcat.dir>
+
+3. Haciendo botón derecho sobre el pom.xml
+	- Run as
+	- Maven build
+	- Goals: clean install liferay:deploy
+
+(Puede ser que si nunca se ha creado un proyecto maven anteriormente en esa máquina sea necesario antes crear uno
+para que se agreguen todas dependecias al repositorio local, y después ejecutar este hook)

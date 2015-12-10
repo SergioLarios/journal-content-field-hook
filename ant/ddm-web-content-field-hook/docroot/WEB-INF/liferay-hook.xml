@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hook PUBLIC "-//Liferay//DTD Hook 6.2.0//EN" "http://www.liferay.com/dtd/liferay-hook_6_2_0.dtd">
+
+<hook>
+	<portal-properties>portal.properties</portal-properties>
+	<language-properties>content/Language.properties</language-properties>
+	<language-properties>content/Language_ca_ES.properties</language-properties>
+	<language-properties>content/Language_es_ES.properties</language-properties>
+	<custom-jsp-dir>/custom_jsps</custom-jsp-dir>
+	<service>
+		<service-type>com.liferay.portal.service.LayoutLocalService</service-type>
+		<service-impl>com.vass.service.LayoutServiceWrap</service-impl>
+	</service>
+	<struts-action>
+		<struts-action-path>/portal/custom-search-wc</struts-action-path>
+		<struts-action-impl>com.vass.struts.action.SearchWebContentAction</struts-action-impl>
+	</struts-action>
+	<struts-action>
+		<struts-action-path>/portal/reindex-wc-field</struts-action-path>
+		<struts-action-impl>com.vass.struts.action.ReindexWcFieldAction</struts-action-impl>
+	</struts-action>
+</hook>
